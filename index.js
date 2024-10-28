@@ -26,14 +26,15 @@ app.get('/red/:red', (req, res) => {
     }
 });
 
-app.get('/blue/:blue', (req, res) => {
-    const blueColor = req.params.blue;
+app.get('/blue', (req, res) => {
+    const blueColor = req.query.blue;  
     if (jsonData.blue[blueColor]) {
         res.send(jsonData.blue[blueColor]);
     } else {
         res.status(404).send({ error: "Blue color not found" });
     }
 });
+
 
 app.get('/combination/:red/:blue', (req, res) => {
     const redColor = req.params.red;
